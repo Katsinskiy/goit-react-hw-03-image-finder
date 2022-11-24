@@ -1,7 +1,8 @@
-import 'modern-normalize/modern-normalize.css';
 import { Component } from 'react';
 import { pixabayAPI } from '../services/api';
 import { Modal, Button, Loader, ImageGallery, Searchbar } from '../components';
+
+import 'modern-normalize/modern-normalize.css';
 
 class App extends Component {
   state = {

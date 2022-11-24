@@ -1,6 +1,8 @@
 import React from 'react';
-import s from './ImageGalleryItem.module.css';
+
 import PropTypes from 'prop-types';
+
+import s from './ImageGalleryItem.module.css';
 
 function ImageGalleryItem({ webformatURL, largeImageURL, tags, onImageClick }) {
   return (

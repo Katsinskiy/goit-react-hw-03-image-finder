@@ -1,7 +1,10 @@
-import { ImageGalleryItem } from 'components';
 import React from 'react';
-import s from './ImageGallery.module.css';
+
+import { ImageGalleryItem } from 'components';
 import PropTypes from 'prop-types';
+
+import s from './ImageGallery.module.css';
+
 
 function ImageGallery({ hits, onItemClick }) {
   const elements = hits.map(element => (
