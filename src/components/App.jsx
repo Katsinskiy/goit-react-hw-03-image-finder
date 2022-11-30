@@ -25,8 +25,7 @@ class App extends Component {
     }
     if (page > 1) {
       window.scrollBy({
-        top: window.innerHeight - 140,
-        behavior: 'smooth',
+        top: window.innerHeight - 140, behavior: 'smooth',
       });
     }
   }
@@ -34,9 +33,7 @@ class App extends Component {
   handleFormSubmit = query => {
     if (!query.trim() || this.state.request === query) return;
     this.setState({
-      request: query,
-      page: 1,
-      items: [],
+      request: query, page: 1, items: [],
     });
   };
 
@@ -48,8 +45,7 @@ class App extends Component {
 
   openModal = (url, alt) => {
     this.setState({
-      url: url,
-      alt: alt,
+      url: url, alt: alt,
     });
   };
   closeModal = () => {
@@ -65,14 +61,14 @@ class App extends Component {
 
     try {
       const { total, totalHits, hits } = await pixabayAPI.getGallary(
-        request,
-        page
+        request, page
       );
 
       this.setState(({ items }) => ({
-        items: [...items, ...hits],
-        pages: total / totalHits,
-      }));
+        items: [...items, ...hits], pages: total / totalHits,
+      })
+      );
+      
     } catch (error) {
       this.setState({ error: error.message });
     } finally {
@@ -87,10 +83,8 @@ class App extends Component {
     console.log('Render N=', ++this.count);
     return (
       <div className="app">
-        {/* в инфо приходит наш стейт с формы после сабмита и записываеться в параметр дата */}
         <Searchbar catchSubmitInfo={this.handleFormSubmit} />
         {isLoading && <Loader />}
-
         <ImageGallery hits={items} onItemClick={this.openModal} />
 
         {pages > page && <Button onClick={this.handleLoadMore} />}
